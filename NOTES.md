@@ -157,6 +157,8 @@
     1. initialize GitHub project / checkout locally
     1. `npm init -y`
     1. `npm i -D aws-ckd aws-cdk-lib constructs ts-node typescript`
+    1. create a separate folder holding the logic of CDK files
+        1. ![](note-imgs/chapt2.01.jpg)
     1. modify `cdk.json`
         1. ` {
            "app":"npx infrastructure/Launcher.ts" 

@@ -158,11 +158,15 @@
     1. `npm init -y`
     1. `npm i -D aws-ckd aws-cdk-lib constructs ts-node typescript`
     1. create a separate folder holding the logic of CDK files
-        1. ![](note-imgs/chapt2.01.jpg)
+        1. folder
+            1. ![](note-imgs/chapt2.01.jpg)
+        1. Stack configuration
+            1. ![](note-imgs/chapt2.03.jpg)
     1. modify `cdk.json`
         1. ` {
            "app":"npx infrastructure/Launcher.ts" 
         }`
+            1. ![](note-imgs/chapt2.02.jpg)
     1. `synth` to get `tsconfig`
 1. 
     1. 

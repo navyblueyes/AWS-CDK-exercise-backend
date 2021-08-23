@@ -1,0 +1,27 @@
+{
+  "name": "ts-cdk-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navyblueyes/AWS-CDK-exercise-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/navyblueyes/AWS-CDK-exercise-backend/issues"
+  },
+  "homepage": "https://github.com/navyblueyes/AWS-CDK-exercise-backend#readme",
+  "devDependencies": {
+    "aws-cdk": "^1.119.0",
+    "aws-cdk-lib": "^2.0.0-rc.18",
+    "constructs": "^10.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
+  }
+}

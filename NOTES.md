@@ -162,11 +162,15 @@
             1. ![](note-imgs/chapt2.01.jpg)
         1. Stack configuration
             1. ![](note-imgs/chapt2.03.jpg)
+        1. Launcher configuration
+            1. ![](note-imgs/chapt2.04.jpg)
     1. modify `cdk.json`
         1. ` {
            "app":"npx infrastructure/Launcher.ts" 
         }`
             1. ![](note-imgs/chapt2.02.jpg)
+    1. initialize TS with `tsc init`
+        1. ![](note-imgs/chapt2.05.jpg)
     1. `synth` to get `tsconfig`
 1. 
     1. 

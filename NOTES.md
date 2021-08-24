@@ -285,76 +285,88 @@
 <summary>Expand</summary>
 
 ##### 3.1 Section intro
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+##### 3.2 Lambda bundling problem
+1. Problem
+    1. Webpack requires JS... NOT TS
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-##### 3.1 Lambda bundling problem
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+1. Three possible solutions
+    1. Monorepo
+        1. Implementation
+            1. Skip WebPack
+            1. Send modules
+        1. Pro
+            1. Simplest solution 
+        1. Con
+            1. Loading of `node_modules` is slow
+    1. Amazon's Node Lambda
+        1. Implementation
+            1. use Docker to load Amazon's version of Node
+        1. Pro
+            1. Faster than mono
+        1. Con
+            1. Experimental
+    1. Webpack
+        1. Implementation
+            1. Configure
+        1. Pro
+            1. Smaller bundle and loading 
+        1. Con
+            1. Painful Configuration
 
 
 
-##### 3.1 CDK Node Lambda
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+##### 3.3 CDK Node Lambda
+1. Intro
+    1. CDK utilizes `esbuild` 
+        1. try it locally so you know it works in AWS
+        1. `npm install -D esbuild@0`
+1. Building a Lambda with TS
+    1. Building a new version of `hello.js`
+        1. utilize `v4` of `uuid` to generate a random number
+            1. ![](note-imgs/chapt2.34.jpg)
+1. Incorporating the `TS` within Stack
+    1. `import` the `NodejsFunction` from `aws-lambda-nodejs`
+        1. ![](note-imgs/chapt2.33.jpg)
+    1. Implement `NodejsFunction` to import and handle `.ts`
+        1. ![](note-imgs/chapt2.32.jpg)
+1. Check if it works
+    1. `cdk synth` to ensure it compiles
+        1. ![](note-imgs/chapt2.35.jpg)
+    1. check if it is stored in Lambda
+        1. ![](note-imgs/chapt2.36.jpg)
+    1. Test lambda
+        1. ![](note-imgs/chapt2.37.jpg)
 
 
             
-##### 3.1 Webpack intro
+##### 3.4 Webpack intro
+1. Get dependencies
+    1. ![](note-imgs/chapt2.38.jpg)
+
+1. Start configuration
+    1. create `webpack.config.ts`
+        1. Ensure to add
+            1. `Configuration` from webpack
+            1. `resolve` from `path`
+        1. ![](note-imgs/chapt2.39.jpg)
+    1. Establish a Configuration Object
+        1. Ensure to have the properties
+            1. `mode`
+            1. `entry`
+            1. `target`
+            1. `module`
+            1. `resolve`
+            1. `output`
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 
@@ -372,7 +384,7 @@
             1. 
 
 
-##### 3.1 Lambda Webpack setup
+##### 3.5 Lambda Webpack setup
 1. 
     1. 
         1. 

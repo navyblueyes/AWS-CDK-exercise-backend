@@ -153,6 +153,11 @@
     1. Allows for all constructs to be imported via one package
 
 ##### 2.2 CDK project implementation - part 2
+1. Overview of Organization
+    1. Try to maintain TS CDK logic within `infrastructure` folder
+        1. Put Stack configuration/logic within `*Stack.ts` file
+        1. Put CDK logic that runs Stack within `Launcher.ts` file
+            1. ![](note-imgs/chapt2.06.jpg)
 1. Overview of starting a CDK project
     1. initialize GitHub project / checkout locally
     1. `npm init -y`
@@ -172,53 +177,57 @@
     1. initialize TS with `tsc init`
         1. ![](note-imgs/chapt2.05.jpg)
     1. `synth` to get `tsconfig`
-1. 
-    1. 
-        1. 
-            1. 
     1. 
         1. 
             1. 
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 2.3 Basic AWS Lambda
+1. Overview
+    1. AWS Lambda 
+        1. Must be kept separate from main logic
+            1. consider putting it within a `services`
+                1. ![](note-imgs/chapt2.07.jpg) 
+    1. 
+        1. 
+            1. 
+1. Basics of implementing Lambda Logic
+    1. import `Function` from `aws-lambda`
+        1. ![](note-imgs/chapt2.10.jpg)
+            1. 
+    1. run `Function` from `aws-lambda` with:
+        1. `runtime:` parameter, which provides options of 
+            1. ![](note-imgs/chapt2.09.jpg)
+        1. `code:` parameter, which provides options of 
+            1. ![](note-imgs/chapt2.08.jpg)
+        1. `handler:` parameter, which picks out what function of the file runs
+            1. ![](note-imgs/chapt2.11.jpg) 
+                1. ![](note-imgs/chapt2.12.jpg)
+    1. run `cdk synth` to see files
+        1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 

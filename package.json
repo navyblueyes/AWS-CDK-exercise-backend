@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/navyblueyes/AWS-CDK-exercise-backend#readme",
   "devDependencies": {
-    "aws-cdk": "^1.119.0",
+    "aws-cdk": "^2.0.0-rc.18",
     "aws-cdk-lib": "^2.0.0-rc.18",
     "constructs": "^10.0.5",
     "ts-node": "^10.2.1",

@@ -39,7 +39,7 @@
 1. `cdk synth` to generate CloudFront `.json` files
     1. ![](note-imgs/chapt1.09.jpg)
         1. ![](note-imgs/chapt1.08.jpg) 
-1. `cdk bootstrap` to send the stack to your AWS account
+1. `cdk bootstrap` to send stack metadata to your AWS account
     1. ![](note-imgs/chapt1.10.jpg)
         1. ![](note-imgs/chapt1.11.jpg)
 1. `cdk deploy`
@@ -204,79 +204,76 @@
             1. ![](note-imgs/chapt2.11.jpg) 
                 1. ![](note-imgs/chapt2.12.jpg)
     1. run `cdk synth` to see files
-        1. 
+        1. ![](note-imgs/chapt2.13.jpg)
+            1. ![](note-imgs/chapt2.14.jpg)
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 2.4 AWS API Gateway and Lambda
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
+1. Overview
+    1. Implementing API Gateway
+        1. Wrap `LambdaFunction` within an `Integration`
+        1. Add a `private` api
+        1. Within constructor, add a `RestApi` resource *with a name*
+        1. Within constructor, Attach a method to resource *WITH AN HTTP VERB*
+    1. Test via REST Client
+        1. ![](note-imgs/chapt2.19.jpg)
+1. Implement API Gateway
+    1. Import 
+        1. `RestApi` from `aws-cdk-lib/lib/aws-apigateway`
+            1. ![](note-imgs/chapt2.15.jpg)
+    1. Implement an integration
+        1. Utilize ApiGateway's `LambdaIntegration` and wrap the Lambda Function in it
+            1. ![](note-imgs/chapt2.16.jpg)
+    1. Add a resource to the `api.root`
+        1. Utilize ApiGateway's `RestApi.root.addResource()` to create a resource called `'hello'`
+            1. ![](note-imgs/chapt2.17.jpg)
+    1. Add integration to the named resource as a Method
+        1. Utilize ApiGateways' `RestApi.root.addMethod` to tie the integration as a `Get` route
+            1. ![](note-imgs/chapt2.18.jpg)
+1. Implement HTTP test
+    1. Code a `.http` file
+        1. ![](note-imgs/chapt2.20.jpg)
+    1. ![](note-imgs/chapt2.21.jpg)
             1. 
 
 ##### 2.5 AWS DynamoDB with CDK
-1. 
-    1. 
+1. Overview
+    1. Keep DynamoDB Logic separate
         1. 
-            1. 
-    1. 
-        1. 
-            1. 
+    1. Remember your fundamental database interaction
+        1. Variables
+            1. name
+            1. primaryKey
+    1. Remember your stack
+        1. Variable
+            1. stack
+    1. Remember to set an initialization function
+        1. to organize the order of functions
+            1. ![](note-imgs/chapt2.22.jpg)
+    1. Remember to add Database function
+        1. to create Table
+            1. ![](note-imgs/chapt2.23.jpg)
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+1. Creating a Table
+    1. Establishing Generic Table function
+        1. establish private variables of table + stack
+            1. ![](note-imgs/chapt2.27.jpg)
+        1. Establish initialization function to manage functions
+            1. ![](note-imgs/chapt2.28.jpg)
+        1. Establish table creation within initialization
+            1. utilize a new `Table` that takes in ...
+                1. stack
+                1. new name
+                1. object with partitionKey / table name
+            1. ![](note-imgs/chapt2.29.jpg)
+1. Implement table function within `*Stack.ts`
+    1. Remember your parameters
+        1. ![](note-imgs/chapt2.30.jpg)
+
+1. Check and deploy
+    1. `cdk synth` and `cdk deploy`
+        1. ![](note-imgs/chapt2.31.jpg)
+
 
 
 </details>
@@ -288,6 +285,21 @@
 <summary>Expand</summary>
 
 ##### 3.1 Section intro
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 

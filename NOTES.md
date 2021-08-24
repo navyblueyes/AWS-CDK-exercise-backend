@@ -351,55 +351,47 @@
             1. `resolve` from `path`
         1. ![](note-imgs/chapt2.39.jpg)
     1. Establish a Configuration Object
-        1. Ensure to have the properties
+        1. Ensure to have the properties (MoET MoRe Out)
             1. `mode`
+                1. ![](note-imgs/chapt2.42.jpg)
             1. `entry`
+                1. ![](note-imgs/chapt2.41.jpg)
             1. `target`
+                1. ![](note-imgs/chapt2.43.jpg)
             1. `module`
+                1. ![](note-imgs/chapt2.44.jpg)
             1. `resolve`
+                1. ![](note-imgs/chapt2.45.jpg)
             1. `output`
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+                1. ![](note-imgs/chapt2.49.jpg)
+    1. Attach webpack within `package.json`
+        1. ![](note-imgs/chapt2.40.jpg)
+    1. Test the build
+        1. ![](note-imgs/chapt2.47.jpg)
 
 
 ##### 3.5 Lambda Webpack setup
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+1. Side effects -- `*.d.ts`
+    1. What it looks like
+        1. ![](note-imgs/chapt2.48.jpg)
+    1. Solution - separate config file to target specific folder
+        1. Create `tsconfig.webpack.json`
+            1. ![](note-imgs/chapt2.50.jpg)
+        1. Connect `webpack.config.ts` to the new file within `ts-loader`'s `configFile`
+            1. ![](note-imgs/chapt2.51.jpg)
+    1. Run and test
+        1. ![](note-imgs/chapt2.52.jpg)
+        1. ![](note-imgs/chapt2.53.jpg)
 
-1. 
-    1. 
-        1. 
+1. Connecting webpack to the Stack 
+    1. Needs to be a LambdaFunction and *BEFORE* all others
+        1. ![](note-imgs/chapt2.54.jpg)
             1. 
-    1. 
-        1. 
-            1. 
+1. Check it by deploying and running a Lambda on AWS
+    1. ![](note-imgs/chapt2.55.jpg)
+
+1. Tree-shaking the largest dependency --> uuid
+    1. ![](note-imgs/chapt2.56.jpg)
 
 </details>
 
@@ -409,6 +401,15 @@
 <summary>Expand</summary>
 
 ##### 4.1 Section intro
+1. 
+    1. 
+        1. 
+1. 
+    1. 
+        1. 
+1. 
+    1. 
+        1. 
 1. 
     1. 
         1. 

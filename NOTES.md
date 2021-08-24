@@ -279,7 +279,7 @@
 </details>
 
 
-### Lesson 3 - AWS CDK and CloudFormation
+### Lesson 3 - Serverless Lambda - bundling testing
 
 <details>
 <summary>Expand</summary>

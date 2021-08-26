@@ -401,9 +401,13 @@
 <summary>Expand</summary>
 
 ##### 4.1 Section intro
-1. 
-    1. 
-        1. 
+1. Overview
+    1. Created a `hello.ts` Lmabda function
+        1. ![](note-imgs/chapt2.57.jpg)
+    1. Will set a breakpoint
+        1. ![](note-imgs/chapt4.01.jpg)
+    1. Write a test doc
+        1. ![](note-imgs/chapt4.02.jpg)
 1. 
     1. 
         1. 

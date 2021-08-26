@@ -9,31 +9,31 @@ import { PolicyStatement } from 'aws-cdk-lib/lib/aws-iam';
 
 export class SpaceStack extends Stack {
 
-    private api = new RestApi(this, 'SpaceApi');
-    private spacesTable = new GenericTable(
-      'SpacesTable',
-      'spaceId',
-      this
-    )
+  private api = new RestApi(this, 'SpaceApi');
+  private spacesTable = new GenericTable(
+    'SpacesTable',
+    'spaceId',
+    this
+  )
 
-    constructor(scope: Construct, id: string, props: StackProps) {
-      super(scope, id, props)
+  constructor(scope: Construct, id: string, props: StackProps) {
+    super(scope, id, props)
 
-      const helloLambdaNodeJs = new NodejsFunction(this, 'helloLambdaNodeJs', {
-        entry: (join(__dirname, '..', 'services', 'node-lambda', 'hello.ts')),
-        handler: 'handler'
-      });
+    const helloLambdaNodeJs = new NodejsFunction(this, 'helloLambdaNodeJs', {
+      entry: (join(__dirname, '..', 'services', 'node-lambda', 'hello.ts')),
+      handler: 'handler'
+    });
 
-      const s3ListPolicy = new PolicyStatement();
-      s3ListPolicy.addActions('s3:ListAllMyBuckets');
-      s3ListPolicy.addResources('*');
-      helloLambdaNodeJs.addToRolePolicy(s3ListPolicy);
+    const s3ListPolicy = new PolicyStatement();
+    s3ListPolicy.addActions('s3:ListAllMyBuckets');
+    s3ListPolicy.addResources('*');
+    helloLambdaNodeJs.addToRolePolicy(s3ListPolicy);
 
-      // lambda integration:
-      const helloLambdaIntegration = new LambdaIntegration(helloLambdaNodeJs);
-      const helloLambdaResource = this.api.root.addResource('hello');
-      helloLambdaResource.addMethod('GET', helloLambdaIntegration);
-    }
+    // lambda integration:
+    const helloLambdaIntegration = new LambdaIntegration(helloLambdaNodeJs);
+    const helloLambdaResource = this.api.root.addResource('hello');
+    helloLambdaResource.addMethod('GET', helloLambdaIntegration);
+  }
 
 
 

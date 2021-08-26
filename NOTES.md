@@ -444,38 +444,13 @@
         1. ![](note-imgs/chapt4.13.jpg)
     1. Configure it to run recursive on "ts-node/register"
         1. ![](note-imgs/chapt4.14.jpg)
-    1. 
-        1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+    1. Checking what is in the response
+        1. ![](note-imgs/chapt4.15.jpg)
+1. If you need to expand on it
+    1. Need to add token / secret access
+        1. add it to the `"env"` of the `"configurations"`
+            1. ![](note-imgs/chapt4.16.jpg)
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 
 </details>
@@ -492,23 +467,48 @@
 
 
 ##### 5.1 Section intro
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+1. What the overall
+    1. Will connect APIs to DynamoDB table
+        1. ![](note-imgs/chapt5.01.jpg)
+    1. Will generate a Table.ts for DynamoDB table generation
+        1. ![](note-imgs/chapt5.02.jpg)
+    1. Will create CRUD actions for API's to interact with tables
+        1. ![](note-imgs/chapt5.03.jpg)
 
 ##### 5.2 Put item
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 

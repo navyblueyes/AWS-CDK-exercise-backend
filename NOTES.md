@@ -420,12 +420,15 @@
         1. ![](note-imgs/chapt4.05.jpg)
     1. Review logs
         1. ![](note-imgs/chapt4.06.jpg)
-1. 
-    1. 
+    1. Sending a request causes an error
+        1. ![](note-imgs/chapt4.07.jpg)
+
+1. Adding permissions via `PolicyStatement`
+    1. import `PolicyStatement` and add Action/Resources; attach lambda to role
+        1. ![](note-imgs/chapt4.08.jpg)
+1. Verifying Lambda Permissions
+    1. Go to specific Lambda function
         1. 
-    1. 
-        1. 
-1. 
     1. 
         1. 
             1. 

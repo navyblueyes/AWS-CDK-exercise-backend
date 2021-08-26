@@ -408,6 +408,9 @@
         1. ![](note-imgs/chapt4.01.jpg)
     1. Write a test doc
         1. ![](note-imgs/chapt4.02.jpg)
+    1. Checking your breakpoint
+        1. ![](note-imgs/chapt4.03.jpg)
+        1. Shows the buckets **WITHOUT RUNNING IT IN THE CLOUD**
 1. 
     1. 
         1. 

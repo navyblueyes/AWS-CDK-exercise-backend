@@ -411,29 +411,35 @@
     1. Checking your breakpoint
         1. ![](note-imgs/chapt4.03.jpg)
         1. Shows the buckets **WITHOUT RUNNING IT IN THE CLOUD**
-1. 
-    1. 
-        1. 
-1. 
-    1. 
-        1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 4.1 AWS CloudWatch logs
+1. Implement `console.log()` within program, invoke and CloudWatch it
+    1. `console.log()`
+        1. ![](note-imgs/chapt4.04.jpg)
+    1. Go to cloudwatch
+        1. ![](note-imgs/chapt4.05.jpg)
+    1. Review logs
+        1. ![](note-imgs/chapt4.06.jpg)
+1. 
+    1. 
+        1. 
+    1. 
+        1. 
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 

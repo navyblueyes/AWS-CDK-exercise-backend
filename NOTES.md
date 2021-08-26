@@ -428,38 +428,39 @@
         1. ![](note-imgs/chapt4.08.jpg)
 1. Verifying Lambda Permissions
     1. Go to specific Lambda function
-        1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+        1. ![](note-imgs/chapt4.09.jpg)
+    1. Go to permissions
+        1. ![](note-imgs/chapt4.10.jpg)
+    1. Go to actions
+        1. ![](note-imgs/chapt4.11.jpg)
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 4.1 Using the AWS sdk
+1. Setting up for local debugging
+    1. Ensure `ts-node` is installed
+    1. Add a new configuration
+        1. ![](note-imgs/chapt4.12.jpg)
+    1. Auto-generates a `launch.json`
+        1. ![](note-imgs/chapt4.13.jpg)
+    1. Configure it to run recursive on "ts-node/register"
+        1. ![](note-imgs/chapt4.14.jpg)
+    1. 
+        1. 
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 

@@ -476,11 +476,14 @@
         1. ![](note-imgs/chapt5.03.jpg)
 
 ##### 5.2 Put item
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
+1.  Testing the sending of a item to DynamoDB
+    1. Create a `Create.ts`
+        1. create a `handler` function that will..
+        1. it will try `dbClient.put({})` a item with a randomized v4 name into `SpacesTable`
+            1. ![](note-imgs/chapt5.04.jpg)
+    1. Modify your test file to ensure proper items are sent
+        1. modify the `test.ts`
+            1. ![](note-imgs/chapt5.05.jpg)
         1. 
             1. 
     1. 

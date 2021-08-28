@@ -497,26 +497,27 @@
             1. 
     1. What we did
         1. Added logic to handle the possibility for `event` or merely just JSON 
+            1. `event` is taken as an `APIGatewayProxyEvent`
             1. `const item = typeof event.body == 'object' ? event.body : JSON.parse(event.body)`
+                1. right before we try `dbClient.put()` an `item`
         1. Added logic to include spaceId
             1. `item.spaceId = v4();`
         1. Add text to `result.body` 
             1. ``result.body = JSON.stringify(`Created item with id ${item.spaceId}`)``
-        1. 
-            1. 
+        
     1. Testing
         1. Check if `event.body` is an object... if not, use `JSON.parse()` to turn it into an object
             1. ![](note-imgs/chapt5.08.jpg)
         1. Run debug... look for uuid and event data
             1.![](note-imgs/chapt5.07.jpg) 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+    1. Checking the result
+        1. Got to DynamoDB
+            1. ![](note-imgs/chapt5.09.jpg)
 
 1. 
+    1. 
+        1. 
+            1. 
     1. 
         1. 
             1. 

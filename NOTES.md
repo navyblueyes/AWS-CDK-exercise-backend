@@ -484,51 +484,53 @@
     1. Modify your test file to ensure proper items are sent
         1. modify the `test.ts`
             1. ![](note-imgs/chapt5.05.jpg)
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 5.3 Getting data from ApiGateway
+1. Overview
+    1. Goal
+        1. Get data from `APIGatewayProxyEvent`
+        1. Store data within DynamoDB
+1. Editing `Create.ts`
+    1. Overview
+        1. ![](note-imgs/chapt5.06.jpg)
+            1. 
+    1. 
+        1. 
+        1. 
+            1. 
+    1. Testing
+        1. 
+            1.![](note-imgs/chapt5.07.jpg) 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 

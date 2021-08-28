@@ -495,12 +495,19 @@
     1. Overview
         1. ![](note-imgs/chapt5.06.jpg)
             1. 
-    1. 
-        1. 
+    1. What we did
+        1. Added logic to handle the possibility for `event` or merely just JSON 
+            1. `const item = typeof event.body == 'object' ? event.body : JSON.parse(event.body)`
+        1. Added logic to include spaceId
+            1. `item.spaceId = v4();`
+        1. Add text to `result.body` 
+            1. ``result.body = JSON.stringify(`Created item with id ${item.spaceId}`)``
         1. 
             1. 
     1. Testing
-        1. 
+        1. Check if `event.body` is an object... if not, use `JSON.parse()` to turn it into an object
+            1. ![](note-imgs/chapt5.08.jpg)
+        1. Run debug... look for uuid and event data
             1.![](note-imgs/chapt5.07.jpg) 
     1. 
         1. 

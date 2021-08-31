@@ -36,6 +36,7 @@ export class GenericTable {
 
   private initialize() {
     this.createTable();
+    this.createLambdas();
   }
   private createTable() {
     this.table = new Table(this.stack, this.props.tableName, {
@@ -47,11 +48,32 @@ export class GenericTable {
     });
   }
 
+  private createLambdas() {
+    if (this.props.createLambdaPath) {
+      this.createLambda = this.createSingleLambda(this.props.createLambdaPath)
+    }
+    if (this.props.readLambdaPath) {
+      this.readLambda = this.createSingleLambda(this.props.readLambdaPath)
+    }
+    if (this.props.updateLambdaPath) {
+      this.updateLambda = this.createSingleLambda(this.props.updateLambdaPath)
+    }
+    if (this.props.deleteLambdaPath) {
+      this.deleteLambda = this.createSingleLambda(this.props.deleteLambdaPath)
+    }
+  }
+
   private createSingleLambda(lambdaName: string): NodejsFunction {
-    const lambdaId = `${this.props.tableName} ${lambdaName}`
+    const lambdaId = `${this.props.tableName}-${lambdaName}`
     return new NodejsFunction(this.stack, lambdaId, {
       entry: (join(__dirname, '..', 'services', this.props.tableName, `${lambdaName}.ts`)),
-      handler: 'handler'
+      handler: 'handler',
+      functionName: lambdaId,
     })
   }
+}
+
+environment: {
+  TABLE_NAME: this.props.tableName,
+  PRIMARY_KEY: this.props.primaryKey
 }

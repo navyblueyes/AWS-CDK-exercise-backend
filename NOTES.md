@@ -494,7 +494,14 @@
 1. Editing `Create.ts`
     1. Overview
         1. ![](note-imgs/chapt5.06.jpg)
-            1. 
+            1. need to get data from the `APIGateway` event
+                1. call it `item`
+                1. need to ternary operator to check for either JSON or object
+            1. unique id for logging purposes
+                1. track issues with an unique identifier
+                    1. utilize `v4`  to generate a `spaceId` property
+                    1. ensure all outputted actions have an identifier
+            
     1. What we did
         1. Added logic to handle the possibility for `event` or merely just JSON 
             1. `event` is taken as an `APIGatewayProxyEvent`
@@ -514,8 +521,67 @@
         1. Got to DynamoDB
             1. ![](note-imgs/chapt5.09.jpg)
 
-1. 
-    1. 
+
+##### 5.4 DynamoDb lambda finish
+1. Overview
+    1. Attempt to abstract the GenericTable
+        1. Problem
+            1. generates ONLY the SpacesTable
+        1. Solution
+            1. utilize environment variables to utilize table based on folder path
+    1. Trigger CRUD functionality via `folderPath`
+        1. Create function for
+            1. Create a Table
+            1. Read a Table
+            1. Update a Table
+            1. Delete a Table
+    1. Ensure `SpaceStack` properly calls the `GenericTable`\
+1. Creating CRUD functionality
+    1. Need to create an interface to 
+        1. Why an interface?
+            1. to define functions of interaction
+        1. Delineate type of interaction via `LambdaPath`
+            1. ![](note-imgs/chapt5.15.jpg)
+        1. Create `NodejsFunction` for each CRUD; be sure to `private` it within the exported class
+            1. ![](note-imgs/chapt5.17.jpg)
+        1. Functions are useless unless you integrate them with Lambda....
+            1. ![](note-imgs/chapt5.18.jpg)
+        1. Within constructor, ensure to have `stack` and `props` with name/primarykey
+            1. ![](note-imgs/chapt5.19.jpg)
+    1. Need a generic `NodejsFunction` takes takes in name of lambda and points to its file location
+        1. Utilize template notation to join the `tableName` with `lambdaName`
+            1. ![](note-imgs/chapt5.20.jpg)
+        1. Return a NodejsFunction that has...
+            1. stack name
+            1. generated lambdaId
+            1. an object that...
+                1. points to the specific lambda function
+                1. name of the handler
+            1. ![](note-imgs/chapt5.21.jpg)
+1. Abstracting the `GenericTable`
+    1. Be sure to add `tableName` and `primaryKey` to the exported interface
+        1. ![](note-imgs/chapt5.16.jpg)
+1. Ensuring `SpaceStack` properly calls `GenericTable`
+    1. call variable `SpaceStack` as a `new GenericTable`
+        1. ![](note-imgs/chapt5.22.jpg)
+            1. REMEMBER!!! Need to send `createLambdaPath` to call the Lambda function to create the DynamoDB table
+1. Note
+    1. always in the `NodejsFunction` doep a `functionName` so that AWS doesn't auto-name it for you
+        1. ![](note-imgs/chapt5.10.jpg) 
+    1. Keep track of environment variables passed to lambda functions
+        1. `Create.ts`... utilize `process.env.TABLE_NAME` to allow `Create.ts` to be used with any table
+            1. ![](note-imgs/chapt5.11.jpg)
+        1. `GenericTable.ts`... inside lambda function, declare `environement` variable
+            1. variable
+                1. ![](note-imgs/chapt5.12.jpg)
+            1. check what you are working with
+                1. ![](note-imgs/chapt5.13.jpg)
+            1. ![](note-imgs/chapt5.14.jpg)
+            
+1. With `CreateSingleLambda` created... need to specify for CRUD
+    1. Utilize a handler of `createLambdas` that checks for LambdaPath and creates an appropriate Lambda in response
+        1. Lambda function that 
+            1. 
         1. 
             1. 
     1. 
@@ -524,7 +590,6 @@
     1. 
         1. 
             1. 
-1. 
     1. 
         1. 
             1. 
@@ -554,8 +619,15 @@
     1. 
         1. 
             1. 
+1. 
+    1.  
+  
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 
-##### 5.4 DynamoDb lambda initial setup
 1. 
     1. 
         1. 
@@ -563,16 +635,6 @@
     1. 
         1. 
             1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-##### 5.5 DynamoDb lambda finish
 1. 
     1. 
         1. 

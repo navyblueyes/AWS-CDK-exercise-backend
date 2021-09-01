@@ -558,6 +558,12 @@
                 1. points to the specific lambda function
                 1. name of the handler
             1. ![](note-imgs/chapt5.21.jpg)
+        1. NOTE -- if you do NOT give `NodejsFunction` a name...
+            1. AWS will generate a random name
+            1. Solution
+                1. give it name
+                    1. ![](note-imgs/chapt5.23.jpg)
+        
 1. Abstracting the `GenericTable`
     1. Be sure to add `tableName` and `primaryKey` to the exported interface
         1. ![](note-imgs/chapt5.16.jpg)
@@ -565,110 +571,92 @@
     1. call variable `SpaceStack` as a `new GenericTable`
         1. ![](note-imgs/chapt5.22.jpg)
             1. REMEMBER!!! Need to send `createLambdaPath` to call the Lambda function to create the DynamoDB table
-1. Note
-    1. always in the `NodejsFunction` doep a `functionName` so that AWS doesn't auto-name it for you
-        1. ![](note-imgs/chapt5.10.jpg) 
-    1. Keep track of environment variables passed to lambda functions
+1. Applying environmental variables 
+    1. Problem
+        1. `Create.ts` is hardcoded to ONLY create `SpacesTable`
+            1. ![](note-imgs/chapt5.24.jpg)
+    1. Solution
         1. `Create.ts`... utilize `process.env.TABLE_NAME` to allow `Create.ts` to be used with any table
             1. ![](note-imgs/chapt5.11.jpg)
-        1. `GenericTable.ts`... inside lambda function, declare `environement` variable
-            1. variable
+        1. `GenericTable.ts`... inside lambda function, declare `environement` variable 
+            1. variable should pull `tableName` and `primaryKey` from `props`
                 1. ![](note-imgs/chapt5.12.jpg)
             1. check what you are working with
                 1. ![](note-imgs/chapt5.13.jpg)
             1. ![](note-imgs/chapt5.14.jpg)
+    1. NOTE!! if you get...
+        1. ![](note-imgs/chapt5.25.jpg)
+            1. just `!` the variable... `TABLE_NAME!`
+            1. if variable is not there, catch the error
             
-1. With `CreateSingleLambda` created... need to specify for CRUD
-    1. Utilize a handler of `createLambdas` that checks for LambdaPath and creates an appropriate Lambda in response
-        1. Lambda function that 
-            1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+1. With `CreateSingleLambda` created... create all the CRUD lambdas
+    1. Utilize a handler of `createLambdas` that creates each CRUD lambda
+        1. Lambda function that reads for `LambdaPath`, create the LamdaFunction, AND integrates it
+            1. ![](note-imgs/chapt5.26.jpg)
+            1. ![](note-imgs/chapt5.28.jpg)
+        1. Call the `createLambdas` within the initializing function
+            1. ![](note-imgs/chapt5.27.jpg)
+1. Give the lambda's the right to access the Tables
+    1. create a private function that will
+        1. check for `createLambda`
+            1. ![](note-imgs/chapt5.29.jpg)
+        1. go into the `this.table.grant` to see your options
+            1. ![](note-imgs/chapt5.30.jpg)
+        1. set `WriteData` permission to the `createLambda`
+            1. ![](note-imgs/chapt5.31.jpg)
+    1. Give the appropriate permissions to the CRUD lambdas
+        1. ![](note-imgs/chapt5.32.jpg)
+    1. Initialize the `grantTableRights()` function within `initialize()` 
+        1. ![](note-imgs/chapt5.33.jpg)
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1.  
-  
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
+1. `SpaceStack` cannot create a table
+    1. Solution - add a POST method
+        1. add `spaces` resource it and add a POST method via `createLambdaIntegration`
+            1. ![](note-imgs/chapt5.34.jpg)
     1. 
         1. 
             1. 
 
 ##### 5.6 Scan operation
-1. 
-    1. 
+1. Creating a new Scan.ts
+    1. Copy Create.ts
         1. 
             1. 
-    1. 
-        1. 
-            1. 
+    1. Notice the things you don't need
+        1. You don't need to send `item` or generate a `v4` `uuid`
+            1. ![](note-imgs/chapt5.35.jpg)
+    1. replace the `.put()` with `.scan()`
+        1. Before
+            1. ![](note-imgs/chapt5.36.jpg)
+        1. After
+            1. ![](note-imgs/chapt5.37.jpg)
+    1. test the results
+        1. write the test
+            1. Before
+                1. ![](note-imgs/chapt5.38.jpg)
+            1. After
+                1. ![](note-imgs/chapt5.39.jpg)
+        1. debug to ensure correct data is sent
+            1. should look like
+                1. ![](note-imgs/chapt5.40.jpg)
+            1. Problem... need to specify table name
+                1. Before
+                    1.  ![](note-imgs/chapt5.41.jpg)
+                1. After
+                    1.  ![](note-imgs/chapt5.42.jpg)
+                1. Looking inside the handler
+                    1. ![](note-imgs/chapt5.43.jpg)
+                        1. ![](note-imgs/chapt5.44.jpg)
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 5.7 Query operation
+1. Overall
+    1. Goal - Get one item with `.query()`
+        1. 
+            1. 
+    1. Making the correct query
+        1. within `requests.http`
+            1. ![](note-imgs/chapt5.45.jpg)
 1. 
     1. 
         1. 

@@ -616,71 +616,47 @@
     1. 
         1. 
             1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1.  
-  
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 5.6 Scan operation
-1. 
-    1. 
+1. Creating a new Scan.ts
+    1. Copy Create.ts
         1. 
             1. 
-    1. 
-        1. 
-            1. 
+    1. Notice the things you don't need
+        1. You don't need to send `item` or generate a `v4` `uuid`
+            1. ![](note-imgs/chapt5.35.jpg)
+    1. replace the `.put()` with `.scan()`
+        1. Before
+            1. ![](note-imgs/chapt5.36.jpg)
+        1. After
+            1. ![](note-imgs/chapt5.37.jpg)
+    1. test the results
+        1. write the test
+            1. Before
+                1. ![](note-imgs/chapt5.38.jpg)
+            1. After
+                1. ![](note-imgs/chapt5.39.jpg)
+        1. debug to ensure correct data is sent
+            1. should look like
+                1. ![](note-imgs/chapt5.40.jpg)
+            1. Problem... need to specify table name
+                1. Before
+                    1.  ![](note-imgs/chapt5.41.jpg)
+                1. After
+                    1.  ![](note-imgs/chapt5.42.jpg)
+                1. Looking inside the handler
+                    1. ![](note-imgs/chapt5.43.jpg)
+                        1. ![](note-imgs/chapt5.44.jpg)
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 5.7 Query operation
+1. Overall
+    1. Goal - Get one item with `.query()`
+        1. 
+            1. 
+    1. Making the correct query
+        1. within `requests.http`
+            1. ![](note-imgs/chapt5.45.jpg)
 1. 
     1. 
         1. 

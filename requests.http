@@ -1,0 +1,13 @@
+@endpoint = https://v1brla82hd.execute-api.eu-west-1.amazonaws.com/prod
+
+GET {{endpoint}}/hello
+
+GET {{endpoint}}/spaces?spaceId=sdfsf435345
+
+POST {{endpoint}}/spaces/
+Content-Type:application/json
+
+{
+  "location": "London",
+  "name": "Best Location"
+}

@@ -657,22 +657,62 @@
     1. Making the correct query
         1. within `requests.http`
             1. ![](note-imgs/chapt5.45.jpg)
-1. 
-    1. 
-        1. 
+    1. Implement `query()` within `Read.ts`
+        1. Note the difference between scan and query
+            1. Scan is for **ALL THE ITEMS IN TABLE**
+                1. only search parameter is **TABLE NAME**
+            1. Query is for **SPECIFIC ITEM** in table
+                1. search parameter include...
+                    1. table name
+                    1. **AND** a `spaceId`
+                1. ALSO... you will need...
+                    1. Primary Key
+                        1. so you can effectively search the table
+        1. Utilize the difference to differentiate between a scan and query
+            1. Utilize an `if` statement to check for the `spaceId` parameter
+1. Modifying the `Read.ts`
+    1. Since `spaceId` is the differentiating item
+        1. Move the `scan` into the `else` portion
             1. 
-    1. 
+    1. Utilize the `PRIMARY_KEY` to access the search parameters
+        1. utilize the `.queryStringParameter` to read PRIMARY_KEY
+            1. 
+    1. Need to break the `PRIMARY_KEY` and its value into an Dynamodb readable language
+        1. DynamoDB searches based on an expression `AttributeName` and `AttributeValue`
+            1. Assign the `PRIMARY_KEY` as the AttributeName
+            1. Assign the value as the AttributeValue
+            1. Utilize `KeyConditionExpression` to AWS which is which
+                1. 
+            1. 
+    1. Compile the results into `results.body` with `JSON.stringify`
         1. 
             1. 
 
-1. 
-    1. 
-        1. 
+1. Update the tests to properly query the table
+    1. Inside the `launch.json`
+        1. Include `PRIMARY_KEY`
             1. 
-    1. 
-        1. 
+    1. Inside the `test.ts`
+        1. update it to properly send a ProxyEvent with `queryStringParameters` and `spaceId`
             1. 
-
+    1. Send a POST request to get a database item
+        1. ![](note-imgs/chapt5.46.jpg)
+    1. Update the `test.ts` to include the `spaceId`
+        1.![](note-imgs/chapt5.48.jpg)
+    1. Debug/test the `test.ts`
+        1. ![](note-imgs/chapt5.47.jpg)
+            1. ![](note-imgs/chapt5.49.jpg)
+    1. Update the `requests.http`
+        1. ![](note-imgs/chapt5.50.jpg)
+1. IMPORTANT - forgot to integrate `GET` as a service
+    1. Go to `SpaceStack.ts`
+        1. Add a `readLambdaPath` to the `GenericTable()`
+            1. 
+        1. Need to add `GET` method and integrate it
+            1. 
+    1. test the `request.http` request
+        1. ![](note-imgs/chapt5.51.jpg)
+            1. 
 ##### 5.8 Query on secondary indexes
 1. 
     1. 

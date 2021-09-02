@@ -613,15 +613,17 @@
     1. Solution - add a POST method
         1. add `spaces` resource it and add a POST method via `createLambdaIntegration`
             1. ![](note-imgs/chapt5.34.jpg)
-    1. 
-        1. 
-            1. 
 
 ##### 5.6 Scan operation
+1. Overview 
+    1. Copy the `Create.ts`
+        1. 
+    1. Delete the things you don't need 
+        1. a `.scan()` doesn't need `item` and `v4`
+    1. Replace `.put` with `.scan()`
+        1. make adjustments to make it more testable
 1. Creating a new Scan.ts
     1. Copy Create.ts
-        1. 
-            1. 
     1. Notice the things you don't need
         1. You don't need to send `item` or generate a `v4` `uuid`
             1. ![](note-imgs/chapt5.35.jpg)

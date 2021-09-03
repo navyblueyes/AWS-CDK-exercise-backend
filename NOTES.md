@@ -654,22 +654,89 @@
 ##### 5.7 Query operation
 1. Overall
     1. Goal - Get one item with `.query()`
+        1. Similar to `.scan()` but you need
+            1. table item -> `spaceId`
+                1. pull it from query parameter
+            1. 
         1. 
             1. 
     1. Making the correct query
         1. within `requests.http`
             1. ![](note-imgs/chapt5.45.jpg)
-1. 
+        1. 
+    1. Integrate `.query()` within `Read.ts`
+        1. run the `.query()` only if...
+            1. difference between `.query()` and `.scan()` 
+                1. --> the query parameter 
+            1. else... 
+                1. run the `.scan`
+    1. Understand the unique way that AWS Gateway queries database
+        1. Problem
+            1. a lot of unique keywords for querying database
+        1. Understand `KeyConditionExpression`
+            1. How it assigns a key and value
+        1. Assign Primary Key to `ExpressionAttributeName`
+        1. Assign Key value to `ExpressionAttributeName`
+            1. 
+        1. Remember
+            1. to `await` the `dbClient.query()`
+            1. to `.promise()` the value
+            1. to assign the value
+            1. to `JSON.stringify` into `results.body`
+    1. Incorporate the changes of `Read.ts` into the governing body... `SpaceStack.ts`
+        1. Need a `readLambdaPath`
+            1. Add it as a parameter for the `new GenericTable()`
+                1. call it `Read` because it is looking for `Read.ts`
+        1. Need to add a GET method and properly integrate it
+    1. Update your testing
+        1. Update the debug test `launch.json`
+            1. to include `PRIMARY_KEY` into the `env`
+        1. update `.test.ts`
+            1. update sent `event` to
+                1. be a `APIGatewayProxyEvent` type
+                1. have a `queryStringParameters` object with 
+                    1. property of `spaceId`
+                        1. Assign it the spaceId of available database entry
+            1. ensure `handler` takes in `event` as a parameter
+    
+1. Integrate `.query()` within `Read.ts`
+    1. first make the proper `request.http`
+        1. 
+            1. 
     1. 
         1. 
             1. 
     1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+1. Incorporate `Read.ts` into `SpaceStack.ts`
+    1. add lambda path to the `new GenericTable`
+        1. add `readLambdaPath: 'Read'`
+            1. 
+    1. add `GET` method with integration
+        1. within the constructor call...
+            1. `spaceResource.addMethod('GET', this.spacesTable.createLambdaIntegration);`
+    1. What it should look like...
         1. 
             1. 
 
-1. 
-    1. 
+1. Update the test
+    1. Update the `launch.json` debug test
+        1. to read the `PRIMARY_KEY` from the `env`
+            1. 
+    1. Update the `requests.http`
+        1. Run the `POST` request to have a retrievable data entry
+            1. ![](note-imgs/chapt5.46.jpg)
+    1. Update the `test.ts`
         1. 
+            1. 
+        1. 
+            1. 
+    1. RUN IT
+        1. ![](note-imgs/chapt5.47.jpg)
             1. 
     1. 
         1. 

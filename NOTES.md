@@ -674,16 +674,8 @@
             1. How it assigns a key and value
         1. Assign Primary Key to `ExpressionAttributeName`
         1. Assign Key value to `ExpressionAttributeName`
-            1. 
-        1. Remember
-            1. to `await` the `dbClient.query()`
-            1. to `.promise()` the value
-            1. to assign the value
-            1. to `JSON.stringify` into `results.body`
     1. Incorporate the changes of `Read.ts` into the governing body... `SpaceStack.ts`
         1. Need a `readLambdaPath`
-            1. Add it as a parameter for the `new GenericTable()`
-                1. call it `Read` because it is looking for `Read.ts`
         1. Need to add a GET method and properly integrate it
     1. Update your testing
         1. Update the debug test `launch.json`
@@ -723,34 +715,57 @@
 1. Incorporate `Read.ts` into `SpaceStack.ts`
     1. add lambda path to the `new GenericTable`
         1. add `readLambdaPath: 'Read'`
-            1. 
+            1. ![](note-imgs/chapt5.50.jpg)
     1. add `GET` method with integration
         1. within the constructor call...
             1. `spaceResource.addMethod('GET', this.spacesTable.createLambdaIntegration);`
-    1. What it should look like...
-        1. 
-            1. 
+                1. ![](note-imgs/chapt5.51.jpg)
 
 1. Update the test
     1. Update the `launch.json` debug test
         1. to read the `PRIMARY_KEY` from the `env`
-            1. 
-    1. Update the `requests.http`
+            1. ![](note-imgs/chapt5.52.jpg)
+    1. Get a `spaceId`; update the `requests.http`
         1. Run the `POST` request to have a retrievable data entry
             1. ![](note-imgs/chapt5.46.jpg)
+        1. Update the `requests.http` to do a GET for the item created by `POST`
     1. Update the `test.ts`
-        1. 
-            1. 
-        1. 
-            1. 
-    1. RUN IT
+        1. specify the `event` as a API Gateway Proxy Event type
+            1. `const event: APIGatewayProxyEvent`
+        1. specify a `queryStringParameter` with a property of `spaceId` from above
+
+```javascript
+const event: APIGatewayProxyEvent = {
+  queryStringParameters: {
+    spaceId: "983a6935-0df8-40df-bad1-24137f9519d5",
+  },
+} as any;
+```
+1. What it should look like...
+    1. Before
+        1. ![](note-imgs/chapt5.53.jpg)
+    1. After
+        1. ![](note-imgs/chapt5.54.jpg)
+1. Debug it
+    1. to check if parameters are sent
+        1. ![](note-imgs/chapt5.55.jpg)
+1. RUN THE REQUEST IT
         1. ![](note-imgs/chapt5.47.jpg)
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 5.8 Query on secondary indexes
+1. Overview
+    1. Reasoning...
+        1. REMEMBER what our table item looks like...
+            1. What it looks like...
+                1. ![](note-imgs/chapt5.56.jpg)
+            1. What you should notice...
+                1. Each entry has a `name` `spaceId` and `location`
+            1. 
+        1. What you should conclude
+            1. If you are looking up `name`...
+                1. you may need a secondary index... `location`
+    1. 
+        1. 
 1. 
     1. 
         1. 

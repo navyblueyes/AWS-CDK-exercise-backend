@@ -657,17 +657,14 @@
         1. Similar to `.scan()` but you need
             1. table item -> `spaceId`
                 1. pull it from query parameter
-            1. 
-        1. 
-            1. 
     1. Making the correct query
         1. within `requests.http`
             1. ![](note-imgs/chapt5.45.jpg)
-        1. 
     1. Integrate `.query()` within `Read.ts`
         1. run the `.query()` only if...
             1. difference between `.query()` and `.scan()` 
-                1. --> the query parameter 
+                1. --> the HTTP query parameter 
+                    1. `/nameOfTable?primaryKey=someNumber`
             1. else... 
                 1. run the `.scan`
     1. Understand the unique way that AWS Gateway queries database
@@ -698,20 +695,31 @@
                     1. property of `spaceId`
                         1. Assign it the spaceId of available database entry
             1. ensure `handler` takes in `event` as a parameter
-    
 1. Integrate `.query()` within `Read.ts`
-    1. first make the proper `request.http`
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+    1. adding an `if...else`
+        1. `if` HTTP has a query string
+            1. `event.queryStringParameters`
+                1. `if (event.queryStringParameters) {`
+        1. `if` there is a PRIMARY_KEY in the query string
+            1. `if (PRIMARY_KEY! in event.queryStringParameters) {`
+        1. extract the value from the `PRIMARY_KEY`
+            1. `const keyValue = event.queryStringParameters[PRIMARY_KEY!];`
+        1. utilize the unique `.query`
+            1. Add `TableName` to the object
+                1. `TableName: TABLE_NAME!,`
+            1. Utilize the `KeyConditionExpression`
+                1. `KeyConditionExpression: '#zz = :zzzz',`
+            1. Now that the key we are sending is defined, we need to fit the parameters
+                1. Adding PrimaryKey as the AttributeName
+                    1.  `ExpressionAttributeNames: {'zz': PRIMARY_KEY!},`
+                1. Adding key value as the AttributeValue
+                    1. `ExpressionAttributeValues: {':zzzz' : keyValue}`
+    1. adding `process.env.PRIMARY_KEY`
+        1. `const PRIMARY_KEY = process.env.PRIMARY_KEY;`
+    1. Before...
+        1. ![](note-imgs/chapt5.48.jpg)
+    1. After ...
+        1. ![](note-imgs/chapt5.49.jpg)
 1. Incorporate `Read.ts` into `SpaceStack.ts`
     1. add lambda path to the `new GenericTable`
         1. add `readLambdaPath: 'Read'`

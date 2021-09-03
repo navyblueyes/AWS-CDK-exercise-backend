@@ -764,6 +764,15 @@ const event: APIGatewayProxyEvent = {
         1. What you should conclude
             1. If you are looking up `name`...
                 1. you may need a secondary index... `location`
+    1. Implementation
+        1. Need to change `GenericTable` to include `SecondaryIndex`
+            1. to the interface
+            1. to its own function
+            1. add secondary index to 
+           
+        1. 
+        1. 
+        1. 
     1. 
         1. 
 1. 

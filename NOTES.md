@@ -777,40 +777,36 @@ const event: APIGatewayProxyEvent = {
             1. need to add `secondaryIndexes: ['location']`
         1. Need to update the Lambda Functions to utilize secondary Index
             1. add a `queryWithSecondaryPartition()` to the `Read.ts`
-        1. 
-    1. 
-        1. 
 1. Updating `GenericTable`
     1. Adding the `addSecondaryIndexes()` function
         1. Need to iterate through each `.secondaryIndexes`
-            1. 
+            1. ![](note-imgs/chapt5.65.jpg)
         1. Need to run `table.addGlobalSecondaryIndex()`
             1. with the parameters...
                 1. `indexName:`
                 1. `partitionKey`
+        1. ![](note-imgs/chapt5.57.png)
+    1. incorporate `secondaryIndexes` as a public-facing interface
+        1. ![](note-imgs/chapt5.64.jpg)
 
 1. Updating the `SpaceStack.ts`
     1. Within the copy of `GenericTable`
         1. Add `secondaryIndexes: ['location']`
-            1. 
-                1. 
+            1. ![](note-imgs/chapt5.58.png)
 1. Updating the `Read.ts`
     1. separate the logic for `queryWithSecondaryPartition()`
         1. extract the query parameter with `Object.keys(param)[0]`
-            1. 
+            1. ![](note-imgs/chapt5.59.jpg)
         1. extract the query value with `param[queryKey]`
-            1. 
+            1. ![](note-imgs/chapt5.60.jpg)
         1. utilize the same `dbClient.query({})` from queryWithPrimaryPartition
             1. add `IndexName`
+                1. ![](note-imgs/chapt5.61.jpg)
         1. `return` the `dbClient.query()` with a `JSON.stringify()`
-            1. 
-        1. 
-            1. 
-        1. 
+            1. ![](note-imgs/chapt5.62.jpg)
 1. Update the `.test.ts`
     1. change the `event`'s `queryStringParameters` to `location: 'London'`
-        1. 
-            1. 
+        1. ![](note-imgs/chapt5.63.jpg)
     1. 
         1. 
             1. 

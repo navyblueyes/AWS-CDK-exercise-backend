@@ -6,6 +6,14 @@ GET {{endpoint}}/hello
 GET {{endpoint}}/spaces?spaceId=sdfsf435345
 ###
 
+PUT {{endpoint}}/spaces?spaceId=sdfsf435345
+Content-Type:application/json
+
+{
+  "location": "new"
+}
+###
+
 GET {{endpoint}}/spaces?location=London
 ###
 

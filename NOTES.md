@@ -807,31 +807,66 @@ const event: APIGatewayProxyEvent = {
 1. Update the `.test.ts`
     1. change the `event`'s `queryStringParameters` to `location: 'London'`
         1. ![](note-imgs/chapt5.63.jpg)
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 5.9 Update operation
+1. Overview 
+    1. Need to create a `PUT` operation on a `spaceId`
+        1. Consist of...
+            1. Copying `Create.ts`
+            1. Need primary key from the `process.env`
+            1. Need to extract / parse the request body and spaceId
+        1. Utilize a `dbClient.update()` using 
+            1. TableName
+            1.Key of the spaceId
+            1. UpdateExppression with AttributeValues and AttributeNames
+    1. Update tests
+        1. Ensure that there is....
+            1. `queryStrinParameters` with `spaceId`
+            1. `body` with `location: 'new'`
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+1. Implementation
+    1. Working on `Update.ts`
+        1. Adding the `PRIMARY_KEY`
+            1. ![](note-imgs/chapt5.66.jpg)
+        1. Within the `handler` function
+            1. Extract the JSON body from the request and the `spaceId` from the query parameters
+                1. ![](note-imgs/chapt5.67.jpg)
+            1. check for the body and `spaceId` and.... 
+                1. extract key with `Object.key`
+                    1. ![](note-imgs/chapt5.68.jpg)
+                1. use key to get the value in the `requestBody`
+                    1. ![](note-imgs/chapt5.69.jpg)
+            1. utilize the `dbClient.update()`
+                1. 
+                    1. 
+                1. 
+                    1. 
+                1. 
+                    1. 
+                1. `ReturnValues`
+                    1. Keep in mind of the different values
+                        1. ![](note-imgs/chapt5.70.jpg)
+                    1. 
+                        1. 
+            1. 
+                1. 
+                    1. 
+        1. 
+            1. 
+                1. 
+        1. 
+            1. 
+                1. 
+        1. 
+            1. 
+                1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 

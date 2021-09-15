@@ -18,19 +18,24 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
     const requestBodyKey = Object.keys(requestBody)[0];
     const requestBodyValue = requestBody(requestBodyKey);
 
-    const updateResult = dbClient.update({
-      TableName: TABLE_NAME,
-      Key: {
-        [PRIMARY_KEY]: spaceId,
-      },
-      UpdateExpression: "set #zzzNew = :new",
-      ExpressionAttributeValues: {
-        ":new": requestBodyValue,
-      },
-      ExpressionAttributeNames: {
-        "#zzzNew": requestBodyKey,
-      },
-    });
+    const updateResult = dbClient
+      .update({
+        TableName: TABLE_NAME,
+        Key: {
+          [PRIMARY_KEY]: spaceId,
+        },
+        UpdateExpression: "set #zzzNew = :new",
+        ExpressionAttributeValues: {
+          ":new": requestBodyValue,
+        },
+        ExpressionAttributeNames: {
+          "#zzzNew": requestBodyKey,
+        },
+        ReturnValues: "UPDATED_NEW",
+      })
+      .promise();
+
+    result.body = JSON.stringify(updateResult);
   }
 
   return result;

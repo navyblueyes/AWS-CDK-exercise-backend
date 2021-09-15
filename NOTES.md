@@ -841,49 +841,67 @@ const event: APIGatewayProxyEvent = {
                 1. use key to get the value in the `requestBody`
                     1. ![](note-imgs/chapt5.69.jpg)
             1. utilize the `dbClient.update()`
-                1. 
-                    1. 
-                1. 
-                    1. 
-                1. 
-                    1. 
+                1. Because you are using `dbClient`
+                    1. will need to supply `UpdateExpression`, `ExpressionAttributeValues`, `ExpressionAttributeNames`
+                1. assign `ExpressionAttributeValues` to the 
+                    1. `requestBodyValue`
+                1. assign `ExpressionAttributeNames` to the 
+                    1. `requestBodyKey`
                 1. `ReturnValues`
                     1. Keep in mind of the different values
                         1. ![](note-imgs/chapt5.70.jpg)
-                    1. 
-                        1. 
-            1. 
-                1. 
-                    1. 
-        1. 
-            1. 
-                1. 
-        1. 
-            1. 
-                1. 
-        1. 
-            1. 
-                1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+                1. What it should look like
+                    1. ![](note-imgs/chapt5.71.jpg)
+            1. put `dbClient.update` into a JSON
+                1. Use the following code
+                    1. `result.body = JSON.stringify(updateResult)`
+    1. Updating the sent event in  `.test.ts`
+        1. specify `spaceId` in the queryStringParameters
+            1. ![](note-imgs/chapt5.72.jpg)
+        1. specify a new `location` in body
+            1. ![](note-imgs/chapt5.73.jpg)
+        1. should look like...
+            1. ![](note-imgs/chapt5.74.jpg)
 
 ##### 5.10 Delete operation
+1. 
+    1. 
+        1. 
+            1. 
+                1. 
+    1. 
+        1. 
+            1. 
+                1. 
+    1. 
+        1. 
+            1. 
+                1. 
+    1. 
+        1. 
+            1. 
+                1. 
+        1. 
+            1. 
+                1. 
+    1. 
+        1. 
+            1. 
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 

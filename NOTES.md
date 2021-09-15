@@ -823,11 +823,6 @@ const event: APIGatewayProxyEvent = {
         1. Ensure that there is....
             1. `queryStrinParameters` with `spaceId`
             1. `body` with `location: 'new'`
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 1. Implementation
     1. Working on `Update.ts`
         1. Adding the `PRIMARY_KEY`
@@ -864,7 +859,22 @@ const event: APIGatewayProxyEvent = {
             1. ![](note-imgs/chapt5.74.jpg)
 
 ##### 5.10 Delete operation
-1. 
+1. Overview
+    1. Make a copy of `Update.ts`
+        1. check for `spaceId` and `dbClient.delete()`
+        1. within `.delete`, must pass...
+            1. `TableName` from `process.env`
+            1. `Key` with `spaceId`
+        1. `JSON.stringify` the results
+    1. Incorporate `Update` and `Delete` into `SpaceStack.ts`
+        1. within the initiation of `GenericTable`
+            1. add a path for... 
+                1. `updateLambdaPath`
+                1. `deleteLambdaPath`
+        1. At the end -- add method / integration
+            1. Need a `PUT` method with an `updateLambdaIntegration`
+            1. Need a `DELETE` method with an `deleteLambdaIntegration`
+1. `Delete.ts`
     1. 
         1. 
             1. 
@@ -877,17 +887,12 @@ const event: APIGatewayProxyEvent = {
         1. 
             1. 
                 1. 
-    1. 
-        1. 
-            1. 
-                1. 
         1. 
             1. 
                 1. 
     1. 
         1. 
             1. 
-1. 
     1. 
         1. 
             1. 
@@ -895,13 +900,13 @@ const event: APIGatewayProxyEvent = {
         1. 
             1. 
 
-1. 
-    1. 
-        1. 
+1. Updating the `requests.http`
+    1. Implementing a `POST` request
+        1. ![](note-imgs/chapt5.7.jpg)
             1. 
-    1. 
-        1. 
-            1. 
+    1. Implementing a `DELETE` request
+        1. ![](note-imgs/chapt5.75.jpg)
+            1. should be an empty object `{}`
 1. 
     1. 
         1. 

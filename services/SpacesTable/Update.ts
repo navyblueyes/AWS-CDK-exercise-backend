@@ -12,31 +12,35 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
     body: "Hello from DynamoDB",
   };
 
-  const requestBody = getEventBody(event);
-  const spaceId = event.queryStringParameters?.[PRIMARY_KEY];
+  try {
+    const requestBody = getEventBody(event);
+    const spaceId = event.queryStringParameters?.[PRIMARY_KEY];
 
-  if (requestBody && spaceId) {
-    const requestBodyKey = Object.keys(requestBody)[0];
-    const requestBodyValue = requestBody(requestBodyKey);
+    if (requestBody && spaceId) {
+      const requestBodyKey = Object.keys(requestBody)[0];
+      const requestBodyValue = requestBody(requestBodyKey);
 
-    const updateResult = dbClient
-      .update({
-        TableName: TABLE_NAME,
-        Key: {
-          [PRIMARY_KEY]: spaceId,
-        },
-        UpdateExpression: "set #zzzNew = :new",
-        ExpressionAttributeValues: {
-          ":new": requestBodyValue,
-        },
-        ExpressionAttributeNames: {
-          "#zzzNew": requestBodyKey,
-        },
-        ReturnValues: "UPDATED_NEW",
-      })
-      .promise();
+      const updateResult = dbClient
+        .update({
+          TableName: TABLE_NAME,
+          Key: {
+            [PRIMARY_KEY]: spaceId,
+          },
+          UpdateExpression: "set #zzzNew = :new",
+          ExpressionAttributeValues: {
+            ":new": requestBodyValue,
+          },
+          ExpressionAttributeNames: {
+            "#zzzNew": requestBodyKey,
+          },
+          ReturnValues: "UPDATED_NEW",
+        })
+        .promise();
 
-    result.body = JSON.stringify(updateResult);
+      result.body = JSON.stringify(updateResult);
+    }
+  } catch (error: any) {
+    result.body = error.message;
   }
 
   return result;

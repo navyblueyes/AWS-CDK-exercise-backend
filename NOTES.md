@@ -875,31 +875,19 @@ const event: APIGatewayProxyEvent = {
             1. Need a `PUT` method with an `updateLambdaIntegration`
             1. Need a `DELETE` method with an `deleteLambdaIntegration`
 1. `Delete.ts`
-    1. 
-        1. 
+    1. Merely a copy of `Update.ts`
+        1. ![](note-imgs/chapt5.76.jpg)
             1. 
                 1. 
-    1. 
-        1. 
+1. Updating the `test.ts`
+    1. Merely change the directory of the `handler` function
+        1. ![](note-imgs/chapt5.77.jpg)
             1. 
-                1. 
-    1. 
-        1. 
-            1. 
-                1. 
-        1. 
-            1. 
-                1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
+1. Updating the `SpaceStack`
+    1. Including the Update and Delete path
+        1. ![](note-imgs/chapt5.78.jpg)
+    1. Adding the Update as a POST integration and a Delete as a DELETE integration
+        1. ![](note-imgs/chapt5.79.jpg)
 1. Updating the `requests.http`
     1. Implementing a `POST` request
         1. ![](note-imgs/chapt5.7.jpg)
@@ -907,23 +895,36 @@ const event: APIGatewayProxyEvent = {
     1. Implementing a `DELETE` request
         1. ![](note-imgs/chapt5.75.jpg)
             1. should be an empty object `{}`
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 5.11 Data validation
+1. Overview
+    1. Goal
+        1. Create helper functions that will check inputs prior to sending to AWS
+    1. Create a new folder `Shared`
+        1. Create a `Model.ts`
+            1. that sets an `interface` of what should be in a `Space` object
+        1. Create a `InputValidator.ts`
+            1. that exports a `function` that checks for...
+                1. `Space.name`
+                1. `Space.location`
+                1. `Space.spaceId`
+            1. that exports a `MissingFieldError` as an `Error` class
+    1. Import validator into Lambda functions
+        1. send events to the `InputValidator.ts`
+            1. 
+        1. incorporate status codes into the `catch (error)`
+        1. incorporate the `MissingFieldError` inside the `catch(error)` 
+    1. Attempt to trigger the validator via wrong inputs in `.test.ts`
+        1. 
+            1. 
+
+1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
 1. 
     1. 
         1. 
@@ -932,9 +933,9 @@ const event: APIGatewayProxyEvent = {
         1. 
             1. 
 
-1. 
-    1. 
-        1. 
+1. Implementing the `test.ts`
+    1. Triggering the `MissingFieldError`
+        1. ![](note-imgs/chapt5.80.jpg)
             1. 
     1. 
         1. 

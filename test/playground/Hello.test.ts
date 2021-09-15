@@ -1,5 +1,5 @@
 import { APIGatewayProxyEvent } from "aws-lambda";
-import { handler } from "../../services/SpacesTable/Read";
+import { handler } from "../../services/SpacesTable/Delete";
 
 const event: APIGatewayProxyEvent = {
   queryStringParameters: {

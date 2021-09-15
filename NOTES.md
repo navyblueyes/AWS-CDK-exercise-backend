@@ -932,19 +932,30 @@ const event: APIGatewayProxyEvent = {
         1. ![](note-imgs/chapt5.80.jpg)
 
 ##### 5.12 Project small fixes
-1. 
-    1. 
-        1. 
+1. Overview
+    1. Creating helper functions to improve readibility
+        1. Create folder
+            1. 
+        1. Create `uuid` replacement
+            1. 
+        1. Create event body parser
             1. 
     1. 
         1. 
             1. 
 
 1. 
-    1. 
+    1. UUID replacer
         1. 
             1. 
-    1. 
+        1. Implement within `Create.ts`
+            1. ![](note-imgs/chapt5.87.jpg)
+    1. Event body parser
+        1. `Create.ts`
+            1. ![](note-imgs/chapt5.86.jpg)
+            1. 
+        1. `Update.ts`
+            1. ![](note-imgs/chapt5.85.jpg)
         1. 
             1. 
 

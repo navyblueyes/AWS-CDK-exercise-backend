@@ -10,9 +10,9 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
     statusCode: 200,
     body: "Hello from DynamoDB",
   };
-
   const item = typeof event.body == "object" ? event.body : JSON.parse(event.body);
   item.spaceId = v4();
+
   try {
     await dbClient
       .put({

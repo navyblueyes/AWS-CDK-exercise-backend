@@ -915,13 +915,16 @@ const event: APIGatewayProxyEvent = {
         1. incorporate status codes into the `catch (error)`
         1. incorporate the `MissingFieldError` inside the `catch(error)` 
     1. Attempt to trigger the validator via wrong inputs in `.test.ts`
-        1. 
-            1. 
 
-1. 
+1. Create `Model.ts`
+    1. it will export the `interface` for what should be in a `Space`
+        1. ![](note-imgs/chapt5.81.jpg)
+1. Create `InputValidator.ts`
+    1. it will import the `Space` interface and throw an error if one of its fields are missing
+        1. ![](note-imgs/chapt5.82.jpg)
+1. Import the validation logic into `Create.ts`
     1. 
         1. 
-            1. 
     1. 
         1. 
             1. 

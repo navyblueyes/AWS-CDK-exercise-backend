@@ -923,26 +923,13 @@ const event: APIGatewayProxyEvent = {
     1. it will import the `Space` interface and throw an error if one of its fields are missing
         1. ![](note-imgs/chapt5.82.jpg)
 1. Import the validation logic into `Create.ts`
-    1. 
-        1. 
-    1. 
-        1. 
-            1. 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
+    1. within the `try...catch` utilize the `validateAsSpaceEntry()` onto `item` PRIOR TO the `dbClient.put()`
+        1. ![](note-imgs/chapt5.83.jpg)
+    1. update the `catch` to include a `MissingFieldError` scenario
+        1. ![](note-imgs/chapt5.84.jpg)
 1. Implementing the `test.ts`
     1. Triggering the `MissingFieldError`
         1. ![](note-imgs/chapt5.80.jpg)
-            1. 
-    1. 
-        1. 
-            1. 
 
 ##### 5.12 Project small fixes
 1. 

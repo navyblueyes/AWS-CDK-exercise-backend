@@ -935,19 +935,9 @@ const event: APIGatewayProxyEvent = {
 1. Overview
     1. Creating helper functions to improve readibility
         1. Create folder
-            1. 
         1. Create `uuid` replacement
-            1. 
         1. Create event body parser
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
     1. UUID replacer
-        1. 
-            1. 
         1. Implement within `Create.ts`
             1. ![](note-imgs/chapt5.87.jpg)
     1. Event body parser
@@ -971,59 +961,87 @@ const event: APIGatewayProxyEvent = {
 <details>
 <summary>Expand</summary>
 ##### 6.1 Section intro
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+1. Overview
+    1. ![](note-imgs/chapt6.01.jpg)
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
 
 
 ##### 6.2 AWS Cognito presentation
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
-
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+1. Overview
+    1. Two main ways to `AUTH`
+        1. User Pools
+            1. You must...
+                1. store user data
+                1. utilize JWT token
+            1. ![](note-imgs/chapt6.02.jpg)
+        1. Identity Pools
+            1. delegate in return for...
+                1. finer access control
+                1. AWS SDK commands
+    1. What is should look like...
+        1. If you comment out the `AUTH`
+            1. ![](note-imgs/chapt6.03.jpg)
 
 ##### 6.3 Cognito in the AWS console
-1. 
-    1. 
-        1. 
+1. Manually creating a user pool via Console
+    1. Main Page
+        1. ![](note-imgs/chapt6.04.jpg)
             1. 
-    1. 
-        1. 
+    1. Click on `Create User Pool`
+        1. ![](note-imgs/chapt6.05.jpg)
+    1. Need to provide
+        1.  Password Policy
+        1.  Email Policy
+        1.  MFA
+        1.  Lambda triggers
+            1. ![](note-imgs/chapt6.06.jpg)
+        1. define your domain
+    1. When finished...
+        1. You get
+            1. App client id
+                1. ![](note-imgs/chapt6.07.jpg)
+            1. User Pool id
+                1. ![](note-imgs/chapt6.10.jpg)
             1. 
+        1. Test setting up a user
+            1. General Settings -> Users and groups -> User tab -> new user
+                1. ![](note-imgs/chapt6.08.jpg)
+            1. Fill out user
+                1. ![](note-imgs/chapt6.09.jpg)
 
-1. 
-    1. 
-        1. 
-            1. 
-    1. 
-        1. 
-            1. 
+1. Command Line 
+    1. Changing user via command line
+        1. Remember you need the 
+            1. user pool id
+        1. `aws cognito-idp admin-set-user-password`
+            1. ![](note-imgs/chapt6.11.jpg)
+                1. ![](note-imgs/chapt6.12.jpg)
 
 ##### 6.4 Generating JWT tokens with AWS Amplify
+1. Overview
+    1. Amplify can run locally
+    1. Install Amplify locally and test auth
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+
 1. 
+    1. 
+        1. 
+            1. 
+    1. 
+        1. 
+            1. 
+1. Overview
     1. 
         1. 
             1. 
